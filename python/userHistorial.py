@@ -1,6 +1,4 @@
 import pandas as pd
-import numpy as np
-from datetime import datetime
 import json
 
 
@@ -37,7 +35,7 @@ for puzzle in typeMapping:
 
 
 
-def computeUserHistorial(dataEvents, group = 'all' , user= 'all',timeLimit = pd.to_datetime('2022-09-10 13:40:17.975299-04:00',utc=True) ):
+def computeUserHistorial(dataEvents, group = 'all' , user= 'all'):
 
 
 
@@ -56,9 +54,6 @@ def computeUserHistorial(dataEvents, group = 'all' , user= 'all',timeLimit = pd.
     # filtering to only take the user passed as argument
     if(user != 'all'):
         dataEvents = dataEvents[dataEvents['user'].isin(user)]
-    # filtering to only take the events before the timeLimit
-    dataEvents = dataEvents.loc[dataEvents['time'] < timeLimit]
-
 
     completed = dict()
     tutorialCompleted = dict()
