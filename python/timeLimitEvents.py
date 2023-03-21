@@ -7,6 +7,6 @@ def computeTimeLimitEvents(dataEvents,timeLimit = pd.to_datetime('2022-09-10 13:
     dataEvents = dataEvents.sort_values('time')
 
     # filtering to only take the events before the timeLimit
-    dataEvents = dataEvents.loc[dataEvents['time'] < timeLimit]
+    dataEvents = dataEvents.loc[dataEvents['time'] <= timeLimit]
 
     return dataEvents

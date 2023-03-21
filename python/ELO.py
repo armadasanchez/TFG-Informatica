@@ -221,14 +221,15 @@ def adaptedData(dataEvents, group = 'all'):
 
 
     #delete row with NaN
-    activity_by_user.dropna(subset = ['user'], inplace=True)
+    if 'user' in activity_by_user.columns:
+        activity_by_user.dropna(subset = ['user'], inplace=True)
 
-    #data output preparation
-    activity_by_user = pd.DataFrame(activity_by_user, columns = ['group_user_task_att', 'group','user','task_id','n_completed', 'kc', 'initial timestamp'])
+        #data output preparation
+        activity_by_user = pd.DataFrame(activity_by_user, columns = ['group_user_task_att', 'group','user','task_id','n_completed', 'kc', 'initial timestamp'])
 
 
-    train = activity_by_user[activity_by_user['user'].isin(userTrain)]
-    test = activity_by_user[activity_by_user['user'].isin(userTest)]
+        train = activity_by_user[activity_by_user['user'].isin(userTrain)]
+        test = activity_by_user[activity_by_user['user'].isin(userTest)]
 
     return activity_by_user, train, test
 

@@ -1,30 +1,31 @@
-;puzzle;order;avg_complete_time;TotalTime
-0;1. One Box;1.0;1.09;0.88
-1;2. Separated Boxes;2.0;1.69;1.67
-2;3. Rotate a Pyramid;3.0;1.62;1.59
-3;4. Match Silhouettes;4.0;2.13;2.12
-5;5. Removing Objects;5.0;2.89;2.85
-6;6. Stretch a Ramp;6.0;2.43;2.39
-7;7. Max 2 Boxes;7.0;1.63;1.53
-8;8. Combine 2 Ramps;8.0;2.02;1.92
-9;9. Scaling Round Objects;9.0;2.57;2.51
-23;Square Cross-Sections;10.0;3.2;3.54
-12;Bird Fez;11.0;3.63;3.87
-20;Pi Henge;12.0;2.22;2.05
-4;45-Degree Rotations;13.0;2.74;2.95
-21;Pyramids are Strange;14.0;4.0;3.62
-13;Boxes Obscure Spheres;15.0;4.97;4.46
-18;Object Limits;16.0;2.71;2.79
-27;Warm Up;17.0;0.93;1.55
-10;Angled Silhouette;18.0;2.21;2.78
-25;Sugar Cones;19.0;1.44;1.13
-24;Stranger Shapes;20.0;4.31;4.24
-26;Tall and Small;21.0;4.44;4.42
-22;Ramp Up and Can It;22.0;2.7;2.66
-16;More Than Meets Your Eye;23.0;4.66;4.22
-17;Not Bird;24.0;3.92;4.07
-28;Zzz;26.0;2.82;2.95
-14;Bull Market;27.0;7.9;7.98
-15;Few Clues;28.0;5.26;5.54
-19;Orange Dance;29.0;14.06;10.43
-11;Bear Market;30.0;20.76;24.9
+;puzzle;order;avg_complete_time;TotalTime;;;;
+0;1. One Box;1.0;1.09;0.88;;;;
+1;2. Separated Boxes;2.0;1.69;1.67;;;;
+2;3. Rotate a Pyramid;3.0;1.62;1.59;;;;
+3;4. Match Silhouettes;4.0;2.13;2.12;;;;
+5;5. Removing Objects;5.0;2.89;2.85;;;;
+6;6. Stretch a Ramp;6.0;2.43;2.39;;;;
+7;7. Max 2 Boxes;7.0;1.63;1.53;;;;
+8;8. Combine 2 Ramps;8.0;2.02;1.92;;;;
+9;9. Scaling Round Objects;9.0;2.57;2.51;;;;
+23;Square Cross-Sections;10.0;3.2;3.54;;;;
+12;Bird Fez;11.0;3.63;3.87;;;;
+20;Pi Henge;12.0;2.22;2.05;;;;
+4;45-Degree Rotations;13.0;2.74;2.95;;;;
+21;Pyramids are Strange;14.0;4.0;3.62;;;;
+13;Boxes Obscure Spheres;15.0;4.97;4.46;;;;
+18;Object Limits;16.0;2.71;2.79;;;;
+27;Warm Up;17.0;0.93;1.55;;;;
+10;Angled Silhouette;18.0;2.21;2.78;;;;
+25;Sugar Cones;19.0;1.44;1.13;;;;
+24;Stranger Shapes;20.0;4.31;4.24;;;;
+26;Tall and Small;21.0;4.44;4.42;;;;
+22;Ramp Up and Can It;22.0;2.7;2.66;;;;
+16;More Than Meets Your Eye;23.0;4.66;4.22;;;;
+17;Not Bird;24.0;3.92;4.07;;;;
+28;Zzz;26.0;2.82;2.95;;;;
+14;Bull Market;27.0;7.9;7.98;;;;
+15;Few Clues;28.0;5.26;5.54;;;;
+19;Orange Dance;29.0;14.06;10.43;;;;
+11;Bear Market;30.0;20.76;24.9;;;;
+29;Unnecessary;25.0;10.0;10.0;;;;
