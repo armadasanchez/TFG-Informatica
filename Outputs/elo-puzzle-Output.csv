@@ -1,0 +1,97 @@
+;task_id;kc;difficulty;normalized_difficulty
+1. One Box~GMD.4;1. One Box;GMD.4;-1.879;0.0
+1. One Box~CO.5;1. One Box;CO.5;-1.879;0.0
+1. One Box~CO.6;1. One Box;CO.6;-1.879;0.0
+2. Separated Boxes~GMD.4;2. Separated Boxes;GMD.4;-1.765;0.04
+2. Separated Boxes~CO.5;2. Separated Boxes;CO.5;-1.765;0.04
+2. Separated Boxes~CO.6;2. Separated Boxes;CO.6;-1.765;0.04
+3. Rotate a Pyramid~GMD.4;3. Rotate a Pyramid;GMD.4;-1.654;0.079
+3. Rotate a Pyramid~CO.5;3. Rotate a Pyramid;CO.5;-1.653;0.08
+3. Rotate a Pyramid~CO.6;3. Rotate a Pyramid;CO.6;-1.654;0.079
+4. Match Silhouettes~GMD.4;4. Match Silhouettes;GMD.4;-1.486;0.139
+4. Match Silhouettes~CO.5;4. Match Silhouettes;CO.5;-1.486;0.138
+4. Match Silhouettes~CO.6;4. Match Silhouettes;CO.6;-1.486;0.139
+Sugar Cones~GMD.4;Sugar Cones;GMD.4;-1.031;0.3
+Sugar Cones~CO.5;Sugar Cones;CO.5;-1.022;0.302
+Sugar Cones~CO.6;Sugar Cones;CO.6;-1.031;0.299
+8. Combine 2 Ramps~GMD.4;8. Combine 2 Ramps;GMD.4;-1.34;0.19
+8. Combine 2 Ramps~CO.5;8. Combine 2 Ramps;CO.5;-1.34;0.19
+8. Combine 2 Ramps~CO.6;8. Combine 2 Ramps;CO.6;-1.34;0.19
+9. Scaling Round Objects~GMD.4;9. Scaling Round Objects;GMD.4;-1.332;0.193
+9. Scaling Round Objects~CO.5;9. Scaling Round Objects;CO.5;-1.331;0.193
+9. Scaling Round Objects~CO.6;9. Scaling Round Objects;CO.6;-1.331;0.193
+Square Cross-Sections~GMD.4;Square Cross-Sections;GMD.4;-0.937;0.333
+Square Cross-Sections~CO.5;Square Cross-Sections;CO.5;-0.937;0.332
+Square Cross-Sections~CO.6;Square Cross-Sections;CO.6;-0.937;0.332
+Bird Fez~MG.1;Bird Fez;MG.1;-1.166;0.332
+Bird Fez~GMD.4;Bird Fez;GMD.4;-0.51;0.484
+Bird Fez~CO.5;Bird Fez;CO.5;-0.511;0.482
+Bird Fez~CO.6;Bird Fez;CO.6;-0.51;0.483
+Pi Henge~MG.1;Pi Henge;MG.1;-1.619;0.0
+Pi Henge~GMD.4;Pi Henge;GMD.4;-0.676;0.425
+Pi Henge~CO.5;Pi Henge;CO.5;-0.675;0.424
+Pi Henge~CO.6;Pi Henge;CO.6;-0.676;0.424
+45-Degree Rotations~GMD.4;45-Degree Rotations;GMD.4;-0.983;0.316
+45-Degree Rotations~CO.5;45-Degree Rotations;CO.5;-1.471;0.144
+45-Degree Rotations~CO.6;45-Degree Rotations;CO.6;-0.982;0.316
+Pyramids are Strange~GMD.4;Pyramids are Strange;GMD.4;-0.652;0.433
+Pyramids are Strange~CO.5;Pyramids are Strange;CO.5;-0.646;0.434
+Pyramids are Strange~CO.6;Pyramids are Strange;CO.6;-0.652;0.433
+Boxes Obscure Spheres~GMD.4;Boxes Obscure Spheres;GMD.4;-0.053;0.645
+Boxes Obscure Spheres~CO.5;Boxes Obscure Spheres;CO.5;-0.125;0.618
+Boxes Obscure Spheres~CO.6;Boxes Obscure Spheres;CO.6;-0.05;0.645
+Object Limits~GMD.4;Object Limits;GMD.4;-0.363;0.535
+Object Limits~CO.5;Object Limits;CO.5;-0.352;0.538
+Object Limits~CO.6;Object Limits;CO.6;-0.361;0.535
+Tetromino~GMD.4;Tetromino;GMD.4;-0.244;0.578
+Tetromino~CO.5;Tetromino;CO.5;-0.237;0.578
+Tetromino~CO.6;Tetromino;CO.6;-0.244;0.577
+Angled Silhouette~GMD.4;Angled Silhouette;GMD.4;-0.605;0.45
+Angled Silhouette~CO.5;Angled Silhouette;CO.5;-0.598;0.451
+Angled Silhouette~CO.6;Angled Silhouette;CO.6;-0.604;0.45
+Stranger Shapes~GMD.4;Stranger Shapes;GMD.4;-0.308;0.555
+Stranger Shapes~CO.5;Stranger Shapes;CO.5;-0.245;0.576
+Stranger Shapes~CO.6;Stranger Shapes;CO.6;-0.25;0.574
+Tall and Small~GMD.4;Tall and Small;GMD.4;-0.202;0.592
+Tall and Small~CO.5;Tall and Small;CO.5;-0.196;0.593
+Tall and Small~CO.6;Tall and Small;CO.6;-0.319;0.55
+5. Removing Objects~GMD.4;5. Removing Objects;GMD.4;-1.42;0.162
+5. Removing Objects~CO.5;5. Removing Objects;CO.5;-1.42;0.162
+5. Removing Objects~CO.6;5. Removing Objects;CO.6;-1.42;0.162
+6. Stretch a Ramp~GMD.4;6. Stretch a Ramp;GMD.4;-1.485;0.139
+6. Stretch a Ramp~CO.5;6. Stretch a Ramp;CO.5;-1.485;0.139
+6. Stretch a Ramp~CO.6;6. Stretch a Ramp;CO.6;-1.485;0.139
+7. Max 2 Boxes~GMD.4;7. Max 2 Boxes;GMD.4;-1.301;0.204
+7. Max 2 Boxes~CO.5;7. Max 2 Boxes;CO.5;-1.301;0.204
+7. Max 2 Boxes~CO.6;7. Max 2 Boxes;CO.6;-1.301;0.204
+Ramp Up and Can It~GMD.4;Ramp Up and Can It;GMD.4;-0.34;0.544
+Ramp Up and Can It~CO.5;Ramp Up and Can It;CO.5;-0.184;0.597
+Ramp Up and Can It~CO.6;Ramp Up and Can It;CO.6;-0.192;0.595
+More Than Meets Your Eye~GMD.4;More Than Meets Your Eye;GMD.4;-0.736;0.404
+More Than Meets Your Eye~CO.5;More Than Meets Your Eye;CO.5;-0.731;0.404
+More Than Meets Your Eye~CO.6;More Than Meets Your Eye;CO.6;-0.735;0.403
+Bear Market~GMD.4;Bear Market;GMD.4;0.952;1.0
+Bear Market~CO.5;Bear Market;CO.5;0.96;1.0
+Bear Market~CO.6;Bear Market;CO.6;0.957;1.0
+Not Bird~GMD.4;Not Bird;GMD.4;0.136;0.712
+Not Bird~CO.5;Not Bird;CO.5;0.124;0.706
+Not Bird~CO.6;Not Bird;CO.6;0.121;0.705
+Warm Up~GMD.4;Warm Up;GMD.4;-1.325;0.196
+Warm Up~CO.5;Warm Up;CO.5;-1.32;0.197
+Warm Up~CO.6;Warm Up;CO.6;-1.324;0.196
+Unnecessary~GMD.4;Unnecessary;GMD.4;-0.236;0.58
+Unnecessary~CO.5;Unnecessary;CO.5;-0.234;0.579
+Unnecessary~CO.6;Unnecessary;CO.6;-0.24;0.578
+Zzz~GMD.4;Zzz;GMD.4;-0.167;0.605
+Zzz~CO.5;Zzz;CO.5;-0.161;0.605
+Zzz~CO.6;Zzz;CO.6;-0.165;0.604
+Bull Market~MG.1;Bull Market;MG.1;-0.253;1.0
+Bull Market~GMD.4;Bull Market;GMD.4;-0.013;0.659
+Bull Market~CO.5;Bull Market;CO.5;-0.011;0.658
+Bull Market~CO.6;Bull Market;CO.6;-0.011;0.659
+Few Clues~GMD.4;Few Clues;GMD.4;-0.109;0.625
+Few Clues~CO.5;Few Clues;CO.5;-0.046;0.646
+Few Clues~CO.6;Few Clues;CO.6;-0.049;0.645
+Orange Dance~GMD.4;Orange Dance;GMD.4;0.359;0.791
+Orange Dance~CO.5;Orange Dance;CO.5;0.358;0.788
+Orange Dance~CO.6;Orange Dance;CO.6;0.355;0.788

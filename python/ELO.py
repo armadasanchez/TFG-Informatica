@@ -627,7 +627,7 @@ def multiTopic_ELO(inputData, Competency, Diff, A_count, Q_count, kcsPuzzleDict 
     return Competency, A_count , Q_count, prob_test, ans_test, competencyPartial, probUser, userPuzzles, completedPartialData, probUserTest, ansUserTest, contPuzzlesUser
 
 
-def run(gamma, beta, output, totalData, train_set, test_set, user_objective = 'all', group_objective = 'all', puzzle_objective = 'all'):
+def run(gamma, beta, output, totalData, train_set, test_set,puzzle_elo_dict, user_objective = 'all', group_objective = 'all', puzzle_objective = 'all'):
     
     
     uDict,gDict,qDict,kcDict,kcsPuzzleDict = loadDataset(totalData)
@@ -662,25 +662,8 @@ def run(gamma, beta, output, totalData, train_set, test_set, user_objective = 'a
         for k in kcDict.keys():
             learner_competency_array[user][k]=0
 
-    # Array with the difficulty array        
-    arrayDiff = arrayDifficulty(totalData, learner_competency_array, question_difficulty_array, response_counter_array, question_counter_array, kcsPuzzleDict,gDict,gamma, beta)
-
-    puzzleDiffMean = dict()
-    #arrayDiffComp = dict()
-    #arrayDiffComp = arrayDiff
-    for puzzle in qDict.keys():
-        puzzleDiffMean[puzzle] = dict()
-        for k in kcsPuzzleDict[puzzle]:
-            puzzleDiffMean[puzzle][k] = 0
-            if(len(arrayDiff[puzzle][k]) > 30):
-                for i in range(10):
-                    arrayDiff[puzzle][k].pop(i)
-                    arrayDiff[puzzle][k].pop(-i)
-                    
-            puzzleDiffMean[puzzle][k] = statistics.mean(arrayDiff[puzzle][k])
-
-
     # Second Stage
+    puzzleDiffMean = puzzle_elo_dict.copy()
     
     if(output == 'metrics'):
         
