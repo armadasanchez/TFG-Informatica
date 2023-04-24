@@ -1,0 +1,30 @@
+;puzzle;order;avg_complete_time;TotalTime
+0;1. One Box;1.0;1.08;0.85
+1;2. Separated Boxes;2.0;1.7;1.44
+2;3. Rotate a Pyramid;3.0;1.64;1.48
+3;4. Match Silhouettes;4.0;2.16;1.79
+5;5. Removing Objects;5.0;2.91;2.43
+6;6. Stretch a Ramp;6.0;2.45;2.09
+7;7. Max 2 Boxes;7.0;1.66;1.15
+8;8. Combine 2 Ramps;8.0;2.04;1.76
+9;9. Scaling Round Objects;9.0;2.6;2.15
+23;Square Cross-Sections;10.0;3.22;2.97
+12;Bird Fez;11.0;3.65;3.19
+20;Pi Henge;12.0;2.25;1.86
+4;45-Degree Rotations;13.0;2.76;2.66
+21;Pyramids are Strange;14.0;4.01;3.32
+13;Boxes Obscure Spheres;15.0;4.99;3.9
+18;Object Limits;16.0;2.73;2.49
+27;Warm Up;17.0;0.95;1.53
+10;Angled Silhouette;18.0;2.23;2.39
+25;Sugar Cones;19.0;1.46;1.05
+24;Stranger Shapes;20.0;4.32;4.02
+26;Tall and Small;21.0;4.46;4.07
+22;Ramp Up and Can It;22.0;2.72;2.42
+16;More Than Meets Your Eye;23.0;4.68;3.72
+17;Not Bird;24.0;3.94;3.5
+28;Zzz;26.0;2.84;2.47
+14;Bull Market;27.0;7.92;6.51
+15;Few Clues;28.0;5.28;5.28
+19;Orange Dance;29.0;14.07;9.62
+11;Bear Market;30.0;20.78;23.2

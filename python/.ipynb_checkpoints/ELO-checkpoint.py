@@ -1,14 +1,22 @@
+from datetime import datetime
 import json
 import numpy as np
 import pandas as pd
+from sklearn import metrics
 import math
-
+import statistics
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
 
 student_id = 'user'
 timestamp = 'initial timestamp'
+student_column_number = 1
+group_column_number = 0
 completed = 'n_completed'
 puzzle_name = 'task_id'
-
+puzzle_column_number = 2
+kc_column = 'kc'
+kc_column_number = 4
 
 kcs = ['GMD.4', 'CO.5', 'CO.6','MG.1']
 mg1Puzzles = ['Bird Fez', 'Pi Henge', 'Bull Market']
@@ -26,7 +34,21 @@ for puzzle in typeMappingDifficulty:
     desc = puzzle.split("~")
     if(desc[1] == 'Tutorial'):
         tutorialPuzzles.append(desc[0])
+        
+advancedPuzzles = []
 
+for puzzle in typeMappingDifficulty:
+    desc = puzzle.split("~")
+    if(desc[1] == 'Hard Puzzles'):
+        advancedPuzzles.append(desc[0])
+        
+        
+intermediatePuzzles = []
+
+for puzzle in typeMappingDifficulty:
+    desc = puzzle.split("~")
+    if(desc[1] == 'Easy Puzzles'):
+        intermediatePuzzles.append(desc[0])
 
 # mapping to positions
 
@@ -92,7 +114,17 @@ def adaptedData(dataEvents, group = 'all'):
     userPuzzleInit = dict()
     n_attemptsAux = dict()
 
+    userTrain = set()
+    userTest = set()
+    userTotal = set()
+
+
     for user in dataEvents['group_user_id'].unique():
+
+        # Computing active time
+        previousEvent = None
+        theresHoldActivity = 60 # np.percentile(allDifferences, 98) is 10 seconds
+        activeTime = []
 
         user_events = dataEvents[dataEvents['group_user_id'] == user]
         user_puzzle_key = None
@@ -104,6 +136,9 @@ def adaptedData(dataEvents, group = 'all'):
                 if(json.loads(event['data'])['task_id'] == 'Sandbox'): continue
 
                 partialKey = event['group'] + '~' + event['user'] + '~' + json.loads(event['data'])['task_id']
+
+                if(event['user'] not in userTotal):
+                    userTotal.add(event['user'])
 
 
                 if(partialKey not in n_attemptsAux.keys()):
@@ -174,6 +209,13 @@ def adaptedData(dataEvents, group = 'all'):
     # add the data by group_user_task_id
     for i in attData.keys():
         key_split = i.split('~')
+
+        if(len(userTrain) < round(len(userTotal)*0.7)):
+            userTrain.add(key_split[1])
+        else:
+            if(key_split[1] not in userTrain): userTest.add(key_split[1])
+
+
 
         if(key_split[2] != '' and key_split[2] != 'Sandbox' and key_split[3] != '' and i != '' and key_split[1] != ''):
             if(attData[i]['accept'] != 0 and attData[i]['dataCompleted'] != 0 and attData[i]['repeat'] == 0):
@@ -305,12 +347,24 @@ def loadDataset(datafile):
 
 
 # ELO algorithm with static difficulty
-def multiTopic_ELO(inputData, Competency, Diff, A_count, kcsPuzzleDict ,gDict,gamma, beta):
+def multiTopic_ELO(inputData, Competency, Diff, A_count, Q_count, kcsPuzzleDict ,gDict,gamma, beta):
 
+    alpha = 1
+    alpha_denominator = 0
+    correct = 0
+    prob_test = dict()
+    ans_test = dict()
+    probUser = dict()
+    competencyPartial = dict()
+    userPuzzles = dict()
     completedPartialData = dict()
     
     failAtt = dict()
-
+    
+    probUserTest = dict()
+    ansUserTest = dict()
+    
+    contPuzzlesUser = dict()
 
     response = np.zeros((len(inputData), 1))
     
@@ -325,7 +379,15 @@ def multiTopic_ELO(inputData, Competency, Diff, A_count, kcsPuzzleDict ,gDict,ga
             failAtt[uid]= dict()
         if(qid not in failAtt[uid].keys()):
             failAtt[uid][qid] = 0
-
+        
+        if(uid not in userPuzzles.keys()): userPuzzles[uid] = []
+        userPuzzles[uid].append(qid)
+        
+        # Cont the puzzles per user (intermediate and advanced)
+        if(uid not in contPuzzlesUser.keys()):
+            contPuzzlesUser[uid] = set()
+        if(qid in intermediatePuzzles or qid in advancedPuzzles):
+            contPuzzlesUser[uid].add(qid)
         
         diff = dict()
         diff[qid]=[]
@@ -343,7 +405,23 @@ def multiTopic_ELO(inputData, Competency, Diff, A_count, kcsPuzzleDict ,gDict,ga
         
         # With the global competition and the difficulty of the question, the probability of solving it is calculated
         probability = (1)/(1 + math.exp( -1 * (compTotal - diffTotal)))
-
+        
+        if(uid not in prob_test.keys()):
+            prob_test[uid] = dict()
+            
+        if(uid not in probUserTest.keys()):
+            probUserTest[uid] = []
+            
+        if(uid not in ansUserTest.keys()):
+            ansUserTest[uid] = []
+        
+        # Save the probabilities
+        prob_test[uid][qid]=probability
+        q_answered_count = Q_count[qid]
+        
+        if(qid in intermediatePuzzles or qid in advancedPuzzles):
+            probUserTest[uid].append(probability)
+        
         # The puzzle is completed or no
         if item[completed] == 1:
 
@@ -353,7 +431,14 @@ def multiTopic_ELO(inputData, Competency, Diff, A_count, kcsPuzzleDict ,gDict,ga
             response[count] = 0
             correct = 0
             failAtt[uid][qid] +=1
-
+        
+        if(uid not in ans_test.keys()):
+            ans_test[uid] = dict()
+            
+        # Save the real result
+        ans_test[uid][qid] = correct
+        if(qid in intermediatePuzzles or qid in advancedPuzzles):
+            ansUserTest[uid].append(correct)
 
         #Alpha component is calculated (normalization factor)
         alpha_numerator = probability - correct
@@ -363,6 +448,14 @@ def multiTopic_ELO(inputData, Competency, Diff, A_count, kcsPuzzleDict ,gDict,ga
             alpha_denominator = alpha_denominator + (correct - probability_lambda)
         alpha = abs(alpha_numerator / alpha_denominator)
 
+        # Initialize new data
+        if(uid not in probUser.keys()):
+            probUser[uid] = dict()
+            competencyPartial[uid] = dict()
+        
+        probUser[uid][qid]= probability
+        
+        Q_count[qid] += 1
         A_count[uid] += 1
         for k in kcsPuzzleDict[qid]:
             
@@ -374,11 +467,15 @@ def multiTopic_ELO(inputData, Competency, Diff, A_count, kcsPuzzleDict ,gDict,ga
             
             # Competency probability is calculated
             probability = (1)/(1 + math.exp( -1 * (Competency[uid][k] - prevDiff)))
-
+            
+            # Update the difficulty
+            #changeDiff = ((gamma)/(1 + beta * q_answered_count)) *alpha* (probability - correct)
+            #Diff[qid][k] = Diff[qid][k] + kcsPuzzleDict[qid][k] * changeDiff
+            
             # Update the competency
             # if puzzle is in tutorial puzzles, we do not update the competency
             weightAtt = 0
-            if(qid not in tutorialPuzzles and correct ==1):
+            if(correct ==1):
                 # Fail limit
                 if(failAtt[uid][qid] >= 5): failAtt[uid][qid] == 5
                     
@@ -399,20 +496,24 @@ def multiTopic_ELO(inputData, Competency, Diff, A_count, kcsPuzzleDict ,gDict,ga
             completedPartialData[key]['correct'] = correct
             completedPartialData[key]['Difficulty'] = round(Diff[qid][k],3)
             completedPartialData[key]['Weight'] = weightAtt
+            completedPartialData[key]['cont_puzzles'] = len(contPuzzlesUser[uid])
             completedPartialData[key]['timestamp'] = time
             completedPartialData[key]['changeComp'] = changeComp
             completedPartialData[key]['complete_change_comp'] = complete_change
             #completedPartialData[key]['changeDiff'] = kcsPuzzleDict[qid][k] * changeDiff
             
-
+            if(k not in competencyPartial[uid].keys()): competencyPartial[uid][k] = []
+            competencyPartial[uid][k].append(Competency[uid][k])
             
                 
-    return Competency
+    return Competency, A_count , Q_count, prob_test, ans_test, competencyPartial, probUser, userPuzzles, completedPartialData, probUserTest, ansUserTest, contPuzzlesUser
 
 
-def run(gamma, beta, totalData, user_objective = 'all'):
+def run(gamma, beta, totalData, user_objective = 'all', group_objective = 'all', puzzle_objective = 'all'):
 
     uDict,gDict,qDict,kcsPuzzleDict = loadDataset(totalData)
+    competency_ELO = pd.DataFrame()
+
 
     # Data for step by step data output
     question_counter = dict()
@@ -433,7 +534,7 @@ def run(gamma, beta, totalData, user_objective = 'all'):
             learner_competency[user][k]=0
 
     # Multi-ELO function
-    learner_competency_total = multiTopic_ELO(totalData, learner_competency, elo_puzzles_dict, response_counter, kcsPuzzleDict,gDict,gamma, beta)
+    learner_competency_total, response_counter_total, question_counter_total, prob_total, ans_total, competencyPartial_total, probUser_total, userPuzzles_total, completedPartialData, probUserTest, ansUserTest, contPuzzlesUser = multiTopic_ELO(totalData, learner_competency, elo_puzzles_dict, response_counter, question_counter, kcsPuzzleDict,gDict,gamma, beta)
 
     elo = 0
     for key in learner_competency[user_objective].keys():
