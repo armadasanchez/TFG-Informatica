@@ -15,8 +15,8 @@ def splitDataset(dataFeatures):
     dataFeatures_train_y = dataFeatures_train.completed
     dataFeatures_test_y = dataFeatures_test.completed
 
-    dataFeatures_test_x = dataFeatures_test.drop(['timestamp','cum_this_puzzle_attempt','n_attempt','group', 'user', 'task_id','completed'], axis=1)
-    dataFeatures_train_x = dataFeatures_train.drop(['timestamp','cum_this_puzzle_attempt','n_attempt','group', 'user', 'task_id','completed'], axis=1)
+    dataFeatures_test_x = dataFeatures_test.drop(['timestamp','cum_this_puzzle_attempt','n_attempt','group', 'task_id','completed'], axis=1)
+    dataFeatures_train_x = dataFeatures_train.drop(['timestamp','cum_this_puzzle_attempt','n_attempt','group', 'task_id','completed'], axis=1)
 
     # Return the train and test set
     return dataFeatures_train_x, dataFeatures_test_x, dataFeatures_train_y, dataFeatures_test_y
