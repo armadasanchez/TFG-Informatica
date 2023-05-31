@@ -1,0 +1,36 @@
+#### Comparación de modelos ####
+#################################
+RandomForestClassifier
+Balanced Accuracy percentil 1:  0.7614803735920468
+Balanced Accuracy percentil 2:  0.7783206656200478
+Balanced Accuracy percentil 3:  0.7922757417690903
+#################################
+Stochastic Gradient Descent
+Balanced Accuracy percentil 1:  0.7229636582448061
+Balanced Accuracy percentil 2:  0.7096145593273129
+Balanced Accuracy percentil 3:  0.7035094602691137
+#################################
+Support Vector Classifier
+Balanced Accuracy percentil 1:  0.696403065475023
+Balanced Accuracy percentil 2:  0.7193443218967387
+Balanced Accuracy percentil 3:  0.7353102218224437
+#################################
+Decision Tree Classifier
+Balanced Accuracy percentil 1:  0.744828764409618
+Balanced Accuracy percentil 2:  0.7433149942609989
+Balanced Accuracy percentil 3:  0.7564629046915847
+#################################
+KNeighborsClassifier
+Balanced Accuracy percentil 1:  0.6744955663961238
+Balanced Accuracy percentil 2:  0.7000001357356859
+Balanced Accuracy percentil 3:  0.7217418156683244
+#################################
+Multilayer Perceptron
+Balanced Accuracy percentil 1:  0.740750792378858
+Balanced Accuracy percentil 2:  0.7652946370074228
+Balanced Accuracy percentil 3:  0.7884817227257436
+#################################
+AdaBoostClassifier
+Balanced Accuracy percentil 1:  0.7253454594283538
+Balanced Accuracy percentil 2:  0.7620729446604557
+Balanced Accuracy percentil 3:  0.7789303578997605
